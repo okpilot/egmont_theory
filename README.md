@@ -16,6 +16,8 @@ gives office staff an Airtable-style grid plus an email alert on every sign-up.
                                         └──────────────────────┘
 ```
 
+> 📍 **Project status & next steps:** see [`ROADMAP.md`](./ROADMAP.md).
+
 ---
 
 ## Quick start
