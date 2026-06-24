@@ -7,7 +7,7 @@ export interface SubmitResult {
   error?: string;
 }
 
-/** Short human-friendly reference, e.g. "SKY-7F3A2K". */
+/** Short human-friendly reference, e.g. "BU-7F3A2K". */
 function makeReference(prefix: string): string {
   const chars = "ABCDEFGHJKMNPQRSTUVWXYZ23456789";
   let s = "";
