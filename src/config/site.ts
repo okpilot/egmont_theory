@@ -42,8 +42,8 @@ export const school = {
   name: "Egmont Aviation",
   shortName: "Egmont Aviation",
   tagline: "EASA Approved Training Organisation",
-  // TODO: confirm public-facing contact address (their site lists no email).
-  email: "office@egmontaviation.com",
+  contactName: "Oleksandr Konovalov",
+  email: "okonovalov@egmont.group",
   phone: "+386 31 737 511",
   approvalRef: "SI.ATO.041",
   defaultLocation: "Egmont Aviation — Maribor Edvard Rusjan Airport (LJMB)",
