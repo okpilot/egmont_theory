@@ -1,0 +1,22 @@
+---
+import { school } from "@/config/site";
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-border bg-muted/40">
+  <div
+    class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6"
+  >
+    <div>
+      <p class="font-semibold text-foreground">{school.name}</p>
+      <p>{school.tagline} · Approval {school.approvalRef}</p>
+    </div>
+    <div class="flex flex-col gap-1 sm:items-end">
+      <a href={`mailto:${school.email}`} class="hover:text-foreground"
+        >{school.email}</a
+      >
+      <span>{school.phone}</span>
+      <span class="text-xs">© {year} {school.name}. All rights reserved.</span>
+    </div>
+  </div>
+</footer>

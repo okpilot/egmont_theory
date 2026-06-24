@@ -1,0 +1,28 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import RegistrationForm from "@/components/RegistrationForm.tsx";
+import { school } from "@/config/site";
+---
+
+<Layout title={`Book an exam — ${school.name}`}>
+  <section
+    class="border-b border-border bg-gradient-to-br from-[oklch(0.28_0.08_255)] to-[oklch(0.45_0.15_250)] text-white"
+  >
+    <div class="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-14">
+      <a href="/" class="text-sm text-white/70 transition hover:text-white"
+        >← Back to home</a
+      >
+      <h1 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+        Book a theory exam
+      </h1>
+      <p class="mt-2 max-w-xl text-white/85">
+        Choose your subject and an available exam date. We'll confirm your slot
+        by email and send any sitting instructions.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 py-12 sm:px-6">
+    <RegistrationForm variant="exam" client:load />
+  </section>
+</Layout>

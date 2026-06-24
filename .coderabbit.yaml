@@ -1,0 +1,18 @@
+# CodeRabbit configuration — https://docs.coderabbit.ai/reference/configuration
+# Requires the CodeRabbit GitHub App to be installed on the repo (free for public repos).
+# Reviews Pull Requests automatically; pushes straight to main are not reviewed.
+language: en-US
+reviews:
+  profile: chill
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  review_status: true
+  auto_review:
+    enabled: true
+    drafts: false
+  path_filters:
+    - "!dist/**"
+    - "!package-lock.json"
+chat:
+  auto_reply: true

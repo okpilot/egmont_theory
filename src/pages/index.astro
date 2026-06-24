@@ -1,0 +1,175 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { school, brushUpSessions, examSubjects } from "@/config/site";
+
+const features = [
+  {
+    title: "Register in minutes",
+    body: "A clean online form replaces paper sign-up sheets. Students enrol from any device.",
+    icon: "M13 2 3 14h7v8l10-12h-7z",
+  },
+  {
+    title: "Pick a date that works",
+    body: "Choose from the brush-up sessions and exam slots the school currently has open.",
+    icon: "M7 2v2M17 2v2M3 8h18M5 4h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z",
+  },
+  {
+    title: "Office stays in sync",
+    body: "Every submission lands in one place for staff, with an email alert on each new sign-up.",
+    icon: "M22 6 12 13 2 6M2 6h20v12H2z",
+  },
+];
+---
+
+<Layout>
+  <!-- Hero -->
+  <section
+    class="relative overflow-hidden bg-gradient-to-br from-[oklch(0.28_0.08_255)] via-[oklch(0.34_0.11_252)] to-[oklch(0.52_0.16_250)] text-white"
+  >
+    <div
+      class="absolute inset-0 [background-image:radial-gradient(circle_at_20%_20%,white_1px,transparent_1px)] [background-size:28px_28px] opacity-20"
+    >
+    </div>
+    <div
+      class="relative mx-auto max-w-6xl px-4 py-20 text-center sm:px-6 sm:py-28"
+    >
+      <span
+        class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-medium tracking-widest uppercase backdrop-blur"
+      >
+        {school.tagline}
+      </span>
+      <h1
+        class="mx-auto mt-6 max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl"
+      >
+        Sharpen your ATPL(A) theory before the exam
+      </h1>
+      <p class="mx-auto mt-5 max-w-xl text-lg text-white/85">
+        Register for an ATPL(A) brush-up session and book your theory exams at {
+          school.name
+        } — all online, no paperwork.
+      </p>
+      <div
+        class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row"
+      >
+        <a
+          href="/brushup"
+          class="inline-flex w-full items-center justify-center rounded-md bg-white px-6 py-3 text-sm font-semibold text-[oklch(0.34_0.11_252)] shadow-sm transition hover:bg-white/90 sm:w-auto"
+        >
+          Browse brush-up sessions →
+        </a>
+        <a
+          href="/exam"
+          class="inline-flex w-full items-center justify-center rounded-md border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/20 sm:w-auto"
+        >
+          Book an exam
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Registration cards -->
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <div class="grid gap-6 md:grid-cols-2">
+      <!-- Theory -->
+      <article
+        class="group flex flex-col rounded-xl border border-border bg-card p-7 shadow-sm transition hover:shadow-md"
+      >
+        <div
+          class="mb-4 grid h-12 w-12 place-items-center rounded-lg bg-accent text-accent-foreground"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-6 w-6"
+          >
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path
+              d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+            ></path>
+          </svg>
+        </div>
+        <h2 class="text-xl font-semibold">ATPL(A) brush-up</h2>
+        <p class="mt-2 flex-1 text-muted-foreground">
+          {brushUpSessions.length} scheduled brush-up sessions covering the EASA ATPL(A)
+          theory subjects. Pick a date from the schedule and we'll save your seat.
+        </p>
+        <a
+          href="/brushup"
+          class="mt-6 inline-flex items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
+        >
+          View the schedule →
+        </a>
+      </article>
+
+      <!-- Exam -->
+      <article
+        class="group flex flex-col rounded-xl border border-border bg-card p-7 shadow-sm transition hover:shadow-md"
+      >
+        <div
+          class="mb-4 grid h-12 w-12 place-items-center rounded-lg bg-accent text-accent-foreground"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-6 w-6"
+          >
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+            ></path>
+            <path d="M14 2v6h6M9 15l2 2 4-4"></path>
+          </svg>
+        </div>
+        <h2 class="text-xl font-semibold">Theory exams</h2>
+        <p class="mt-2 flex-1 text-muted-foreground">
+          Book a slot for any of the {examSubjects.length} EASA ATPL(A) theory subjects.
+          Pick a subject and an available exam date.
+        </p>
+        <a
+          href="/exam"
+          class="mt-6 inline-flex items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
+        >
+          Book an exam →
+        </a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Feature strip -->
+  <section class="border-t border-border bg-muted/30">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <div class="grid gap-8 sm:grid-cols-3">
+        {
+          features.map((f) => (
+            <div class="flex flex-col items-start">
+              <div class="grid h-11 w-11 place-items-center rounded-lg border border-border bg-card text-primary shadow-sm">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5"
+                >
+                  <path d={f.icon} />
+                </svg>
+              </div>
+              <h3 class="mt-4 font-semibold">{f.title}</h3>
+              <p class="mt-1.5 text-sm text-muted-foreground">{f.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>

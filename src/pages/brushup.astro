@@ -1,0 +1,29 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import RegistrationForm from "@/components/RegistrationForm.tsx";
+import { school } from "@/config/site";
+---
+
+<Layout title={`ATPL(A) brush-up registration — ${school.name}`}>
+  <section
+    class="border-b border-border bg-gradient-to-br from-[oklch(0.28_0.08_255)] to-[oklch(0.45_0.15_250)] text-white"
+  >
+    <div class="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-14">
+      <a href="/" class="text-sm text-white/70 transition hover:text-white"
+        >← Back to home</a
+      >
+      <h1 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+        ATPL(A) brush-up
+      </h1>
+      <p class="mt-2 max-w-xl text-white/85">
+        Refresh your ATPL(A) theory ahead of your exams. Browse the scheduled
+        brush-up sessions below, pick the one that suits you, and register — the
+        office will confirm your seat by email.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 py-12 sm:px-6">
+    <RegistrationForm variant="brushup" client:load />
+  </section>
+</Layout>
