@@ -1,7 +1,7 @@
 # Egmont Aviation — ATPL(A) Student Portal
 
-A **static** website where flight-school students register for theory courses and
-book theory exams. Built with **Astro + React + Tailwind + shadcn/ui**.
+A **static** website where flight-school students register for **ATPL(A) brush-up
+sessions** and book theory exams. Built with **Astro + React + Tailwind + shadcn/ui**.
 
 The website itself holds **no database**. Each registration is POSTed as JSON to a
 separate, self-hostable **forms/data engine** (e.g. NocoDB) that owns the data and
@@ -30,6 +30,26 @@ npm run preview    # serve the built ./dist locally
 Out of the box the site runs in **demo mode**: forms validate and show the success
 screen, but nothing is sent anywhere (the would-be payload is logged to the browser
 console). Wire a backend to go live — see below.
+
+---
+
+## Development & quality gate
+
+```bash
+npm run lint      # ESLint (flat config: TS/TSX + Astro + react-hooks)
+npm run format    # Prettier check (write with: npm run format:write)
+npm run check     # astro check — type-checks .astro/.ts/.tsx
+npm run test      # Vitest unit tests (src/lib/*.test.ts)
+npm run build     # production build
+```
+
+CI (`.github/workflows/ci.yml`) runs all of the above on every push to `main` and
+every pull request. **CodeRabbit** auto-reviews PRs (`.coderabbit.yaml`, assertive
+profile). Workflow: branch → PR → CI + CodeRabbit green → squash-merge. Don't push
+straight to `main`.
+
+Unit tests cover the logic that fails silently if broken: `submit.ts` payload
+shaping per `payloadStyle`, the form validation rules, and session-date formatting.
 
 ---
 
@@ -147,9 +167,14 @@ src/
     RegistrationForm.tsx     ← the form (React island: brush-up schedule + exam)
     ui/                       ← shadcn components
   lib/submit.ts              ← backend-agnostic submission + demo mode
+  lib/validation.ts          ← pure form-validation rules (unit-tested)
   lib/format.ts              ← session date formatting
+  lib/*.test.ts              ← Vitest unit tests
   pages/
     index.astro              ← landing
     brushup.astro            ← ATPL(A) brush-up schedule + registration
     exam.astro               ← exam booking
+
+Config: eslint.config.js · .prettierrc · vitest.config.ts · .coderabbit.yaml
+        .github/workflows/ci.yml
 ```
