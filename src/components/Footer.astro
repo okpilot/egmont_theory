@@ -12,6 +12,7 @@ const year = new Date().getFullYear();
       <p>{school.tagline} · Approval {school.approvalRef}</p>
     </div>
     <div class="flex flex-col gap-1 sm:items-end">
+      <span class="text-foreground">{school.contactName}</span>
       <a href={`mailto:${school.email}`} class="hover:text-foreground"
         >{school.email}</a
       >
